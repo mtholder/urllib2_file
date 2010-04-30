@@ -289,7 +289,7 @@ class newHTTPHandler(urllib2.BaseHandler):
 
         code, msg, hdrs = h.getreply()
         fp = h.getfile()
-        if code == 200:
+        if code >= 200 and code < 300:
             resp = urllib.addinfourl(fp, hdrs, req.get_full_url())
             resp.code = code
             resp.msg = msg
